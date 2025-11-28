@@ -1,28 +1,41 @@
 .site {
   display: grid;
-  grid-template-columns: 2fr repeat(2, 1fr);
+  grid-template-areas:
+    "title"
+    "masthead"
+    "main"
+    "sidebar"
+    "footer";
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 3fr;
+
+  @media screen and (min-width: 600px) {
+    grid-template-areas:
+      "title title title"
+      "main masthead masthead"
+      "main sidebar sidebar"
+      "footer footer footer";
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-rows: auto 1fr 3fr;
+  }
 }
 
 .masthead {
-  grid-column: 2/4;
-  grid-row: 2/3;
+  grid-area: masthead;
 }
 
 .page-title {
-  grid-column: 1/4;
+  grid-area: title;
 }
 
 .main-content {
-  grid-column: 1/2;
-  grid-row: 2/4;
+  grid-area: main;
 }
 
 .sidebar {
-  grid-column: 2/4;
-  grid-row: 3/4;
+  grid-area: sidebar;
 }
 
 .footer-content {
-  grid-column: 1 / span 3;
+  grid-area: footer;
 }
