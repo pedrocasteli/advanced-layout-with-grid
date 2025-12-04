@@ -12,6 +12,27 @@ Layout
 }
 
 @media screen and (min-width: 800px) {
+  .site {
+    max-width: none;
+  }
+
+  .main-area > *,
+  .credits {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+
+  .feature-content,
+  .related,
+  .interrupt-content,
+  .credits aside {
+    grid-column: 2/4;
+  }
+
+  .twin {
+    grid-column: span 2;
+  }
+
   .related {
     display: flex;
     gap: 1em;
